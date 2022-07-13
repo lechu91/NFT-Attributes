@@ -33,7 +33,8 @@ def get_ape_info(apeID):
 	
 	contract = web3.eth.contract(address= contract_address, abi=abi)
 	
-	output1 = contract.functions.tokenURI(1)
+	output1 = contract.functions.tokenURI(uint256(1))
+	print("progress")
 	
 	print(output1)
 	
