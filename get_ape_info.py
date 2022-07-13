@@ -34,24 +34,19 @@ def get_ape_info(apeID):
 	
 	contract = web3.eth.contract(address=contract_address, abi=abi)
 	URI = contract.functions.tokenURI(apeID).call()
-	
-	print(URI)
 	cid = "QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/"+str(apeID)
-	
 	params = (('arg', cid),)
 	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params)
-
 	response_dict = response.json()
-	print(response_dict)
+
+	data['owner'] = contract.functions.ownerOf(apeID).call()
 	data['image'] = response_dict.get('image')
+
 	attributes = response_dict.get('attributes')
-	
 	for attribute in attributes:
 		if attribute.get('trait_type') == 'Eyes':
 			data['eyes'] = attribute.get('value')
 			break
-		
-	data['owner'] = contract.functions.ownerOf(apeID).call()
 	print(data)
 	
 	assert isinstance(data,dict), f'get_ape_info{apeID} should return a dict' 
