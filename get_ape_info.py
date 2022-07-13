@@ -28,8 +28,9 @@ def get_ape_info(apeID):
 	data = {'owner': "", 'image': "", 'eyes': "" }
 	
 	#YOUR CODE HERE	
+	print(abi)
 	
-	print("apeID :"+str(apeID))
+	print("apeID: "+str(apeID))
 	
 # 	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
 	params = (
@@ -38,6 +39,8 @@ def get_ape_info(apeID):
 	
 	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params)
 		#, auth=auth)
+		
+	print("checkpoint")
 	
 	print_data = response.json()
 
