@@ -33,28 +33,20 @@ def get_ape_info(apeID):
 	#YOUR CODE HERE	
 	
 	contract = web3.eth.contract(address=contract_address, abi=abi)
-	
-	
-	
-	output1 = contract.functions.tokenURI(1).call()
-	print("progress")
-	
-	print(output1)
-	
-# 	supply = contract.functions.totalSupply().call()
-
-# 	print( f"Supply = {supply}" )
+	URI = contract.functions.tokenURI(apeID).call()
+	print(URI)
 	
 # 	print("apeID: "+str(apeID))
-#  	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
-# 	params = (
-# 		('arg', apeID),
-# 	)
-# 	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params)
-# 		#, auth=auth)
+ 	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
+	params = (
+		('arg', URI),
+	)
+
+	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params)
+		, auth=auth)
 # 	print("checkpoint")
-# 	print_data = response.json()
-# 	print(print_data)
+	print_data = response.json()
+	print(print_data)
 	
 	
 	assert isinstance(data,dict), f'get_ape_info{apeID} should return a dict' 
