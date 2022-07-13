@@ -17,7 +17,7 @@ with open('/home/codio/workspace/abi.json', 'r') as f:
 
 ############################
 #Connect to an Ethereum node
-api_url = #YOU WILL NEED TO TO PROVIDE THE URL OF AN ETHEREUM NODE
+api_url = f"https://mainnet.infura.io/v3/05d545fd8cc5446a9b6e02369555a845"
 provider = HTTPProvider(api_url)
 web3 = Web3(provider)
 
@@ -28,7 +28,20 @@ def get_ape_info(apeID):
 	data = {'owner': "", 'image': "", 'eyes': "" }
 	
 	#YOUR CODE HERE	
+	
+	
+	
+# 	files = {'file': json_object,}
+# 	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
 
+	params = (
+		('arg', web3),
+	)
+	
+	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params)
+	
+	print(response)
+	
 	assert isinstance(data,dict), f'get_ape_info{apeID} should return a dict' 
 	assert all( [a in data.keys() for a in ['owner','image','eyes']] ), f"return value should include the keys 'owner','image' and 'eyes'"
 	return data
