@@ -20,8 +20,9 @@ with open('/home/codio/workspace/abi.json', 'r') as f:
 
 api_url = f"https://mainnet.infura.io/v3/05d545fd8cc5446a9b6e02369555a845"
 web3 = Web3(HTTPProvider(api_url))
+assert web3.isConnected(), f"Failed to connect to provider at {url}"
 
-print("let's start")
+print("Successfully connected to Ethereum node.")
 
 def get_ape_info(apeID):
 	assert isinstance(apeID,int), f"{apeID} is not an int"
@@ -31,9 +32,11 @@ def get_ape_info(apeID):
 	
 	#YOUR CODE HERE	
 	
-	contract = web3.eth.contract(address= contract_address, abi=abi)
+	contract = web3.eth.contract(address=contract_address, abi=abi)
 	
-	output1 = contract.functions.tokenURI(uint256(1))
+	
+	
+	output1 = contract.functions.tokenURI(1).call()
 	print("progress")
 	
 	print(output1)
