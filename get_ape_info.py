@@ -42,8 +42,7 @@ def get_ape_info(apeID):
 		('arg', URI),
 	)
 
-	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params)
-		, auth=auth)
+	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params, auth=auth)
 # 	print("checkpoint")
 	print_data = response.json()
 	print(print_data)
