@@ -47,7 +47,7 @@ def get_ape_info(apeID):
 	
 	for attribute in attributes:
 		if attribute.get('trait_type') = 'Eyes':
-			data['eyes'] = attribute.get('value')
+			data['eyes'] == attribute.get('value')
 			break
 	
 	print(data)
