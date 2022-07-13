@@ -46,8 +46,8 @@ def get_ape_info(apeID):
 	attributes = response_dict.get('attributes')
 	
 	for attribute in attributes:
-		if attribute.get('trait_type') = 'Eyes':
-			data['eyes'] == attribute.get('value')
+		if attribute.get('trait_type') == 'Eyes':
+			data['eyes'] = attribute.get('value')
 			break
 	
 	print(data)
