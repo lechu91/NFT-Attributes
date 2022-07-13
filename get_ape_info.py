@@ -37,8 +37,8 @@ def get_ape_info(apeID):
 	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params, auth=auth)
 	
 	print_data = response.json()
+	data = response.json()
 	
-	print(print_data)
 	
 	print(response)
 	
