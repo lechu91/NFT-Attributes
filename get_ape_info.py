@@ -37,10 +37,9 @@ def get_ape_info(apeID):
 	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params, auth=auth)
 	
 	print_data = response.json()
-	data = response.json()
+
+	print(print_data)
 	
-	
-	print(response)
 	
 	assert isinstance(data,dict), f'get_ape_info{apeID} should return a dict' 
 	assert all( [a in data.keys() for a in ['owner','image','eyes']] ), f"return value should include the keys 'owner','image' and 'eyes'"
