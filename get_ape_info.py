@@ -36,11 +36,9 @@ def get_ape_info(apeID):
 	URI = contract.functions.tokenURI(apeID).call()
 	print(URI)
 	
-# 	print("apeID: "+str(apeID))
  	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
-	params = (
-		('arg', URI),
-	)
+
+	params = (('arg', URI),)
 
 	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params, auth=auth)
 # 	print("checkpoint")
