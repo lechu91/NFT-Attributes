@@ -34,7 +34,7 @@ def get_ape_info(apeID):
 	
 	contract = web3.eth.contract(address=contract_address, abi=abi)
 	URI = contract.functions.tokenURI(apeID).call()
-	sample_owner = contract.functions.owner(apeID).call()
+	sample_owner = contract.functions.address(1)
 	
 	
 	print(URI)
