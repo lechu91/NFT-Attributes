@@ -37,6 +37,8 @@ def get_ape_info(apeID):
 	print(URI)
 	
 #  	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
+	
+	URI = "QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/2876"
 
 	params = (('arg', URI),)
 
