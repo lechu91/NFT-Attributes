@@ -35,19 +35,16 @@ def get_ape_info(apeID):
 	contract = web3.eth.contract(address=contract_address, abi=abi)
 	URI = contract.functions.tokenURI(apeID).call()
 	print(URI)
+	cid = "QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/"+str(apeID)
 	
-#  	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
-	
-	URI = "QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/"+str(apeID)
-
-	params = (('arg', URI),)
-
+	params = (('arg', cid),)
 	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params)
-# 	, auth=auth)
-# 	print("checkpoint")
-	print_data = response.json()
-	print(print_data)
+
+	response_dict = response.json()
+	data['image'] = response_dict.get('image')
+	data['eyes'] = response_dict.get('eyes')
 	
+	print(data)
 	
 	assert isinstance(data,dict), f'get_ape_info{apeID} should return a dict' 
 	assert all( [a in data.keys() for a in ['owner','image','eyes']] ), f"return value should include the keys 'owner','image' and 'eyes'"
