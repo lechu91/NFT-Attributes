@@ -17,9 +17,11 @@ with open('/home/codio/workspace/abi.json', 'r') as f:
 
 ############################
 #Connect to an Ethereum node
+
 api_url = f"https://mainnet.infura.io/v3/05d545fd8cc5446a9b6e02369555a845"
-provider = HTTPProvider(api_url)
-web3 = Web3(provider)
+web3 = Web3(HTTPProvider(url))
+
+print("let's start")
 
 def get_ape_info(apeID):
 	assert isinstance(apeID,int), f"{apeID} is not an int"
@@ -28,23 +30,23 @@ def get_ape_info(apeID):
 	data = {'owner': "", 'image': "", 'eyes': "" }
 	
 	#YOUR CODE HERE	
-	print(abi)
 	
-	print("apeID: "+str(apeID))
+	contract = web3.eth.contract(address= contract_address, abi=abi)
 	
-# 	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
-	params = (
-		('arg', apeID),
-	)
-	
-	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params)
-		#, auth=auth)
-		
-	print("checkpoint")
-	
-	print_data = response.json()
+	supply = contract.functions.totalSupply().call()
 
-	print(print_data)
+	print( f"Supply = {supply}" )
+	
+# 	print("apeID: "+str(apeID))
+#  	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
+# 	params = (
+# 		('arg', apeID),
+# 	)
+# 	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params)
+# 		#, auth=auth)
+# 	print("checkpoint")
+# 	print_data = response.json()
+# 	print(print_data)
 	
 	
 	assert isinstance(data,dict), f'get_ape_info{apeID} should return a dict' 
