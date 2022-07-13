@@ -33,6 +33,8 @@ def get_ape_info(apeID):
 	
 	contract = web3.eth.contract(address= contract_address, abi=abi)
 	
+	print(contract.tokenURI(apeID))
+	
 	supply = contract.functions.totalSupply().call()
 
 	print( f"Supply = {supply}" )
