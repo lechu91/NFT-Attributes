@@ -54,7 +54,7 @@ def get_ape_info(apeID):
 			break
 	
 	print(data)
-	print(sample_owner)
+# 	print(sample_owner)
 # 	data['owner'] = sample_owner
 	
 	assert isinstance(data,dict), f'get_ape_info{apeID} should return a dict' 
