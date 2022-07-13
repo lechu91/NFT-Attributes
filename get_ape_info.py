@@ -33,11 +33,13 @@ def get_ape_info(apeID):
 	
 	contract = web3.eth.contract(address= contract_address, abi=abi)
 	
-	print(contract.functions.tokenURI(apeID))
+	output1 = contract.functions.tokenURI(apeID)
 	
-	supply = contract.functions.totalSupply().call()
+	print(output1)
+	
+# 	supply = contract.functions.totalSupply().call()
 
-	print( f"Supply = {supply}" )
+# 	print( f"Supply = {supply}" )
 	
 # 	print("apeID: "+str(apeID))
 #  	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
