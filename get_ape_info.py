@@ -31,7 +31,7 @@ def get_ape_info(apeID):
 	
 	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
 	params = (
-		('arg', web3),
+		('arg', apeID),
 	)
 	
 	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params, auth=auth)
