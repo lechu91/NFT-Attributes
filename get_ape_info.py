@@ -29,12 +29,15 @@ def get_ape_info(apeID):
 	
 	#YOUR CODE HERE	
 	
-	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
+	print("apeID :"+str(apeID))
+	
+# 	auth = ("2AW1mnzV6tcq27eNtvbTl3cgPXW","4db7b25efb64a0104b2ec86b7cc6ba77")
 	params = (
 		('arg', apeID),
 	)
 	
-	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params, auth=auth)
+	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params)
+		#, auth=auth)
 	
 	print_data = response.json()
 
