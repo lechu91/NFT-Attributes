@@ -19,7 +19,7 @@ with open('/home/codio/workspace/abi.json', 'r') as f:
 #Connect to an Ethereum node
 
 api_url = f"https://mainnet.infura.io/v3/05d545fd8cc5446a9b6e02369555a845"
-web3 = Web3(HTTPProvider(url))
+web3 = Web3(HTTPProvider(api_url))
 
 print("let's start")
 
