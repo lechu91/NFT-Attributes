@@ -41,6 +41,7 @@ def get_ape_info(apeID):
 	response = requests.post('https://ipfs.infura.io:5001/api/v0/cat', params=params)
 
 	response_dict = response.json()
+	print(response_dict)
 	data['image'] = response_dict.get('image')
 	data['eyes'] = response_dict.get('eyes')
 	
