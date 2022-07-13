@@ -34,8 +34,6 @@ def get_ape_info(apeID):
 	
 	contract = web3.eth.contract(address=contract_address, abi=abi)
 	URI = contract.functions.tokenURI(apeID).call()
-# 	sample_owner = contract.functions.address(1)
-	
 	
 	print(URI)
 	cid = "QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/"+str(apeID)
@@ -52,10 +50,9 @@ def get_ape_info(apeID):
 		if attribute.get('trait_type') == 'Eyes':
 			data['eyes'] = attribute.get('value')
 			break
-	
+		
+	data['owner'] = contract.functions.ownerOf(apeID).call()
 	print(data)
-# 	print(sample_owner)
-# 	data['owner'] = sample_owner
 	
 	assert isinstance(data,dict), f'get_ape_info{apeID} should return a dict' 
 	assert all( [a in data.keys() for a in ['owner','image','eyes']] ), f"return value should include the keys 'owner','image' and 'eyes'"
